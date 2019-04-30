@@ -61,6 +61,17 @@ outfitRouter.post('/:outfit/:article', async (req, res) => {
   }
 });
 
+outfitRouter.delete('/:outfit/:article', async (req, res) => {
+  try {
+    const outfit = await Outfit.findByPk(req.params.outfit);
+    const article = await Article.findByPk(req.params.article);
+    outfit.removeArticle(article);
+    res.send(outfit);
+  } catch (e) {
+    res.status(500).json({ msg: e.message });
+  }
+});
+
 module.exports = {
   outfitRouter
 }
