@@ -12,6 +12,15 @@ outfitRouter.get('/', async (req, res) => {
   }
 });
 
+outfitRouter.post('/', async (req, res) => {
+  try {
+    const outfit = await Outfit.create(req.body);
+    res.send(outfit);
+  } catch (e) {
+    res.status(500).json({ msg: e.message });
+  }
+})
+
 module.exports = {
   outfitRouter
 }
