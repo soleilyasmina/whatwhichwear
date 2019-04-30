@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js",
-    "db:reset": "node resetDb.js"
+    "db:reset": "node resetDb.js",
+    "db:seed": "node seed.js",
+    "hard": "node resetDb.js && node seed.js"
   },
   "repository": {
     "type": "git",
