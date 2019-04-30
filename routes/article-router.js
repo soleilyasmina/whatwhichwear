@@ -40,6 +40,16 @@ articleRouter.put('/:id', async (req, res) => {
   }
 });
 
+articleRouter.delete('/:id', async (req, res) => {
+  try {
+    const article = await Article.findByPk(req.params.id);
+    await article.destroy();
+    res.send(article);
+  } catch (e) {
+    res.status(500).json({ msg: e.message });
+  }
+});
+
 module.exports = {
   articleRouter
 }
