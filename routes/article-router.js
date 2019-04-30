@@ -30,6 +30,16 @@ articleRouter.get('/:id', async (req, res) => {
   }
 });
 
+articleRouter.put('/:id', async (req, res) => {
+  try {
+    const article = await Article.findByPk(req.params.id);
+    await article.update(req.body);
+    res.send(article);
+  } catch (e) {
+    res.status(500).json({ msg: e.message });
+  }
+});
+
 module.exports = {
   articleRouter
 }
