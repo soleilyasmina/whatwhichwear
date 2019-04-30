@@ -7,16 +7,29 @@ const sequelize = new Sequelize({
 });
 
 const Article = sequelize.define('article', {
-  color: Sequelize.STRING,
-  type: Sequelize.STRING,
-  season: Sequelize.STRING,
   brand: Sequelize.STRING,
-  occasion: Sequelize.STRING,
+  color: Sequelize.STRING,
   description: Sequelize.TEXT,
-  fit: Sequelize.STRING
+  fit: Sequelize.STRING,
+  occasion: Sequelize.STRING,
+  season: Sequelize.STRING,
+  times_worn: Sequelize.INTEGER,
+  type: Sequelize.STRING
 });
+
+const Outfit = sequelize.define('outfit', {
+  description: Sequelize.STRING,
+  name: Sequelize.STRING,
+  occasion: Sequelize.STRING,
+  season: Sequelize.STRING,
+  times_worn: Sequelize.INTEGER
+});
+
+Article.belongsToMany(Outfit, { through: 'garments' });
+Outfit.belongsToMany(Article, { through: 'garments' });
 
 module.exports = {
   sequelize,
-  Article
+  Article,
+  Outfit
 }
