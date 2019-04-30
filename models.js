@@ -17,7 +17,7 @@ const Article = sequelize.define('article', {
   type: Sequelize.STRING
 });
 
-const Outfit = sequelize.define('article', {
+const Outfit = sequelize.define('outfit', {
   description: Sequelize.STRING,
   name: Sequelize.STRING,
   occasion: Sequelize.STRING,
@@ -30,5 +30,6 @@ Outfit.belongsToMany(Article, { through: 'garments' });
 
 module.exports = {
   sequelize,
-  Article
+  Article,
+  Outfit
 }
