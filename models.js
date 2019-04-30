@@ -6,7 +6,7 @@ const sequelize = new Sequelize({
   define: { underscored: true }
 });
 
-const Article = sequelize.define({
+const Article = sequelize.define('articles', {
   id: { type: Sequelize.INTEGER, primaryKey: true },
   color: Sequelize.STRING,
   type: Sequelize.STRING,
