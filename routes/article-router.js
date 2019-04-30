@@ -19,8 +19,17 @@ articleRouter.post('/', async (req, res) => {
   } catch (e) {
     res.status(500).json({ msg: e.message });
   }
-})
+});
+
+articleRouter.get('/:id', async (req, res) => {
+  try {
+    const article = await Article.findByPk(req.params.id);
+    res.send(article);
+  } catch (e) {
+    res.status(500).json({ msg: e.message });
+  }
+});
 
 module.exports = {
   articleRouter
-} 
+}
