@@ -19,7 +19,16 @@ outfitRouter.post('/', async (req, res) => {
   } catch (e) {
     res.status(500).json({ msg: e.message });
   }
-})
+});
+
+outfitRouter.get('/:id', async (req, res) => {
+  try {
+    const outfit = await Outfit.findByPk(req.params.id);
+    res.send(outfit);
+  } catch (e) {
+    res.status(500).json({ msg: e.message });
+  }
+});
 
 module.exports = {
   outfitRouter
