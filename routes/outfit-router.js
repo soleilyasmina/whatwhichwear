@@ -50,6 +50,17 @@ outfitRouter.delete('/:id', async (req, res) => {
   }
 });
 
+outfitRouter.post('/:outfit/:article', async (req, res) => {
+  try {
+    const outfit = await Outfit.findByPk(req.params.outfit);
+    const article = await Article.findByPk(req.params.article);
+    outfit.addArticle(article);
+    res.send(outfit);
+  } catch (e) {
+    res.status(500).json({ msg: e.message });
+  }
+});
+
 module.exports = {
   outfitRouter
 }
