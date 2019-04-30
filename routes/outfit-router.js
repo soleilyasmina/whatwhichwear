@@ -48,7 +48,7 @@ outfitRouter.delete('/:id', async (req, res) => {
   } catch (e) {
     res.status(500).json({ msg: e.message });
   }
-})
+});
 
 module.exports = {
   outfitRouter
