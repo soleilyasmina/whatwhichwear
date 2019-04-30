@@ -7,7 +7,10 @@ const outfitRouter = express.Router();
 outfitRouter.route('/')
   .get(async (req, res) => {
     try {
-      const outfits = await Outfit.findAll();
+      const outfits = await Outfit.findAll({
+        include: [ Article ]
+      }
+      );
       res.send(outfits);
     } catch (e) {
       res.status(500).json({ msg: e.message });
@@ -26,7 +29,10 @@ outfitRouter.route('/')
 outfitRouter.route('/:id')
   .get(async (req, res) => {
     try {
-      const outfit = await Outfit.findByPk(req.params.id);
+      const outfit = await Outfit.findOne({
+        where: { id: req.params.id },
+        include: [ Article ]
+      });
       res.send(outfit);
     } catch (e) {
       res.status(500).json({ msg: e.message });
