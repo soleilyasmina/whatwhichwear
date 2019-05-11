@@ -1,12 +1,13 @@
-import React, { Fragment } from 'react';
+import React from 'react';
+import './ArticleItem.css';
 
 // small version of article for articlelist 
-const ArticleItem = props => {
+const ArticleItem = ({ article }) => {
   return (
-    <Fragment>
-      { /* insert photo here */ }
-      { /* insert color, brand, and type */ }
-    </Fragment>
+    <div className="ArticleItem">
+      <img src={require('../../assets/cat.png')} alt={article.description} />
+      <p>{`${article.color} ${article.brand} ${article.type}`}</p>
+    </div>
   )
 }
 
