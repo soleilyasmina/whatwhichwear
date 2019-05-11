@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import ArticleList from './components/ArticleList/ArticleList';
 import './App.css';
 
 function App() {
+  const [articles, setArticles] = useState([]);
+
   return (
     <div className="App">
-      <h1>Whatwhichwear</h1>
+      <ArticleList articles={articles}/>
     </div>
   );
 }
