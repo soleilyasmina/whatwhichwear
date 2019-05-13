@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { Fragment, useState } from 'react';
 import ArticleList from '../ArticleList/ArticleList';
+import ArticleDetail from '../ArticleDetail/ArticleDetail';
 
 const ArticleView = ({ articles }) => {
+  const [currentArticle, setCurrentArticle] = useState(null);
   return (
-    <ArticleList articles={articles}/>
+    <Fragment>
+    {
+      currentArticle ?
+      <ArticleList articles={articles} setCurrentArticle={setCurrentArticle}/> :
+      <ArticleDetail article={currentArticle} />
+    }
+    </Fragment>
   )
 }
 
