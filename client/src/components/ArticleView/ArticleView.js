@@ -1,8 +1,9 @@
 import React from 'react';
+import ArticleList from '../ArticleList/ArticleList';
 
-const ArticleView = props => {
+const ArticleView = ({ articles }) => {
   return (
-    <h1>Hello! I'm the ArticleView.</h1>
+    <ArticleList articles={articles}/>
   )
 }
 
