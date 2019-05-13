@@ -8,8 +8,8 @@ const ArticleView = ({ articles }) => {
     <Fragment>
     {
       currentArticle ?
-      <ArticleList articles={articles} setCurrentArticle={setCurrentArticle}/> :
-      <ArticleDetail article={currentArticle} />
+      <ArticleDetail article={currentArticle} /> :
+      <ArticleList articles={articles} setCurrentArticle={setCurrentArticle}/>
     }
     </Fragment>
   )
