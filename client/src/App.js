@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import ArticleList from './components/ArticleList/ArticleList';
+import ArticleView from './components/ArticleView/ArticleView';
 import './App.css';
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
 
   return (
     <div className="App">
-      <ArticleList articles={articles}/>
+      <ArticleView articles={articles}/>
     </div>
   );
 }
