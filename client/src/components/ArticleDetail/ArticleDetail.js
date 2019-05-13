@@ -1,7 +1,7 @@
 import React from 'react';
 import './ArticleDetail.css';
 
-const ArticleDetail = ({ article }) => {
+const ArticleDetail = ({ article, setCurrentArticle }) => {
   return (
     <div className="ArticleDetail">
       <img src={require('../../assets/cat.png')} alt={article.description}/>
@@ -11,6 +11,7 @@ const ArticleDetail = ({ article }) => {
       <p>Fit: {article.fit}</p>
       <p>Season: {article.season}</p>
       <p>Occasion: {article.occasion}</p>
+      <button onClick={() => setCurrentArticle(null)}>BACK</button>
     </div>
   )
 }
