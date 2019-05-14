@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Route, Link } from 'react-router-dom';
 import ArticleView from './components/ArticleView/ArticleView';
 import './App.css';
 
@@ -16,7 +17,14 @@ function App() {
 
   return (
     <div className="App">
-      <ArticleView articles={articles}/>
+      <Route exact path="/" component={() => (<h1>Home</h1>)} />
+      <Route path="/articles" component={() => (
+        <ArticleView articles={articles}/>
+      )}/>
+      <nav>
+        <Link to="/">Home</Link>
+        <Link to="/articles">Articles</Link>
+      </nav>
     </div>
   );
 }
